@@ -1,0 +1,5 @@
+venv
+aiohttp_boilerplate
+.pytest_cache
+.git
+__pycache__
