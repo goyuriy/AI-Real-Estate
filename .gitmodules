@@ -1,0 +1,3 @@
+[submodule "admin/utils"]
+	path = admin/utils
+	url = git@github.com:webdevelop-pro/i-python-utils.git
