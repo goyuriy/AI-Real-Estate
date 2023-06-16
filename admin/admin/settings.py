@@ -46,6 +46,7 @@ AUTH_USER_MODEL = "accounts.Account"
 
 INSTALLED_APPS = [
     'task.apps.TasksConfig',
+    'transaction.apps.TransactionConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,6 +56,7 @@ INSTALLED_APPS = [
     'markdownx',
     'easy_thumbnails',
     'accounts',
+    'multiselectfield',
     # 'filer',
     # 'admin.email',
     # 'comment',
