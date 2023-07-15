@@ -22,5 +22,5 @@ class TaskAdmin(admin.ModelAdmin):
 class AssignedTasktAdmin(admin.ModelAdmin):
     list_filter = ["task", "status"]
     list_display = [
-        "__str__", "task", "status",
+        "id", "transaction", "user", "task", "assignee_type", "status",
     ]

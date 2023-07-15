@@ -69,7 +69,7 @@ class Task(models.Model):
     updated_at = models.DateTimeField(null=False, editable=False, default=datetime.now)
     
     def __str__(self):
-       return f"{self.name}, {str(self.pk)}"
+       return f"{self.name}"
 
     class Meta:
         db_table = "task_tasks"
@@ -78,26 +78,13 @@ class Task(models.Model):
 
 
 class AssignedTask(models.Model):
-    user = models.ForeignKey(Account, on_delete=models.CASCADE, null=True, editable=False)
+    user = models.ForeignKey(Account, on_delete=models.CASCADE, null=True, blank=True, editable=False)
     transaction = models.ForeignKey(Transaction, on_delete=models.CASCADE, null=False)
     task = models.ForeignKey(Task, on_delete=models.CASCADE, null=False)
 
     status = models.CharField(max_length=50, choices=status, default='pending')
 
-    # def save(self, *args, **kwargs):
-    #     # if not self.founding_state and self.pk is None:
-    #     #     self.founding_state = "AR"
-
-    #     if 'fsbo-seller' in self.task.assignee:
-    #         pass
-
-    #     if 'buyer' in self.task.bu:
-    #         pass
-
-    #     print(self.task.assignee)
-    #     print(self.transaction.saller.pk)
-
-    #     super().save(*args, **kwargs)
+    assignee_type = models.CharField(max_length=50, editable=False)
 
     def __str__(self):
         return f"{str(self.task.name)}"
