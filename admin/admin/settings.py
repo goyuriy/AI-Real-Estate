@@ -38,6 +38,8 @@ CSRF_TRUSTED_ORIGINS = [
     "https://admin-web.webdevelop.us",
     "https://www.webdevelop.us",
     "https://webdevelop.us",
+    "https://admin.smplytitle.com",
+    "https://smplytitle.com"
 ]
 
 AUTH_USER_MODEL = "accounts.Account"
@@ -56,7 +58,6 @@ INSTALLED_APPS = [
     'markdownx',
     'easy_thumbnails',
     'accounts',
-    'multiselectfield',
     # 'filer',
     # 'admin.email',
     # 'comment',

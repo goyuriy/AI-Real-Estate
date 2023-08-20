@@ -10,7 +10,6 @@ from .models import Task, AssignedTask, ChoiceArrayField #, OfferFiler
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
     formfield_overrides = {
-        'document_template': {'widget': ImageClearableFileInput},
         ChoiceArrayField: {'widget': CheckboxSelectMultiple}
     }
     list_filter = ["task_priority", ]
@@ -24,3 +23,5 @@ class AssignedTasktAdmin(admin.ModelAdmin):
     list_display = [
         "id", "transaction", "user", "task", "assignee_type", "status",
     ]
+
+    readonly_fields = ["assignee_type", "user"]

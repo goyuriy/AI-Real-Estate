@@ -54,8 +54,8 @@ class Task(models.Model):
     name = models.CharField(max_length=150, null=False)
     description = models.TextField(null=False, default='')
 
-    document_template = e_fields.ThumbnailerImageField(max_length=255, null=False, default='', blank=True,
-        resize_source=dict(size=(140, 140), sharpen=True))
+    document_template = models.FileField(upload_to='uploads/')
+    user_document = models.FileField(upload_to='uploads/')
     
     assignee = ChoiceArrayField(CharField(max_length=24, choices=UserTypesEnum.choices), default=list)
 

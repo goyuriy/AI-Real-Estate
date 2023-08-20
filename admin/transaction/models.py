@@ -75,7 +75,7 @@ class TransactionTemplate(models.Model):
     name = models.CharField(max_length=150, null=False)
 
     state = models.CharField(max_length=50, choices=states)
-    country = models.CharField(max_length=50, choices=countries)
+    county = models.CharField(max_length=50, null=True, blank=True)
 
     created_at = models.DateTimeField(null=False, editable=False, default=datetime.now)
     updated_at = models.DateTimeField(null=False, editable=False, default=datetime.now)
@@ -93,8 +93,6 @@ class Transaction(models.Model):
     name = models.CharField(max_length=150, null=False)
 
     status = models.CharField(max_length=50, choices=status, default='pending')
-
-    address = models.CharField(max_length=150, default='')
 
     saller = models.ForeignKey(Account, on_delete=models.CASCADE, null=False, related_name='saller')
     buyer = models.ForeignKey(Account, on_delete=models.CASCADE, null=False, related_name='buyer')
